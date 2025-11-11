@@ -1,0 +1,288 @@
+import type { Project, Student, Enrollment } from "../types/project"
+
+export const areas = [
+  "Tecnologia",
+  "Educação",
+  "Saúde",
+  "Meio Ambiente",
+  "Cultura",
+  "Direitos Humanos",
+  "Comunicação",
+  "Desenvolvimento Rural",
+  "Trabalho",
+  "Justiça",
+]
+
+export const courses = [
+  "Administração",
+  "Agronomia",
+  "Arquitetura e Urbanismo",
+  "Ciência da Computação",
+  "Ciências Biológicas",
+  "Ciências Contábeis",
+  "Direito",
+  "Educação Física",
+  "Enfermagem",
+  "Engenharia Ambiental",
+  "Engenharia Civil",
+  "Engenharia de Software",
+  "Engenharia Florestal",
+  "Medicina",
+  "Medicina Veterinária",
+  "Nutrição",
+  "Pedagogia",
+  "Psicologia",
+  "Sistemas de Informação",
+  "Zootecnia",
+]
+
+export const mockProjects: Project[] = [
+  {
+    id: "1",
+    name: "Tecnologia Assistiva para Deficientes Visuais",
+    area: "Tecnologia",
+    description:
+      "Desenvolvimento de aplicações e ferramentas tecnológicas para auxiliar pessoas com deficiência visual em suas atividades cotidianas, incluindo leitores de tela e aplicativos móveis acessíveis.",
+    totalHours: 120,
+    weeklyHours: 8,
+    startDate: "2024-03-01",
+    endDate: "2024-07-31",
+    courses: ["Ciência da Computação", "Engenharia de Software", "Sistemas de Informação"],
+    coordinator: "Prof. Dr. João Silva",
+    status: "open",
+    maxParticipants: 15,
+    currentParticipants: 8,
+  },
+  {
+    id: "2",
+    name: "Educação Ambiental nas Escolas Rurais",
+    area: "Meio Ambiente",
+    description:
+      "Projeto voltado para conscientização ambiental em escolas rurais da região, promovendo práticas sustentáveis e educação ecológica para crianças e adolescentes.",
+    totalHours: 80,
+    weeklyHours: 6,
+    startDate: "2024-02-15",
+    endDate: "2024-06-15",
+    courses: ["Pedagogia", "Ciências Biológicas", "Engenharia Ambiental"],
+    coordinator: "Profa. Dra. Maria Santos",
+    status: "in-progress",
+    maxParticipants: 20,
+    currentParticipants: 18,
+  },
+  {
+    id: "3",
+    name: "Saúde Mental Universitária",
+    area: "Saúde",
+    description:
+      "Programa de apoio psicológico e promoção da saúde mental para estudantes universitários, oferecendo rodas de conversa, workshops e atendimento psicológico.",
+    totalHours: 100,
+    weeklyHours: 10,
+    startDate: "2024-04-01",
+    endDate: "2024-08-31",
+    courses: ["Psicologia", "Medicina", "Enfermagem"],
+    coordinator: "Prof. Dr. Carlos Oliveira",
+    status: "open",
+    maxParticipants: 12,
+    currentParticipants: 5,
+  },
+  {
+    id: "4",
+    name: "Arte e Cultura na Comunidade",
+    area: "Cultura",
+    description:
+      "Desenvolvimento de atividades artísticas e culturais em comunidades carentes, promovendo inclusão social através da arte, música e teatro.",
+    totalHours: 90,
+    weeklyHours: 6,
+    startDate: "2024-05-01",
+    endDate: "2024-09-30",
+    courses: ["Pedagogia", "Arquitetura e Urbanismo", "Educação Física"],
+    coordinator: "Profa. Ma. Ana Beatriz",
+    status: "open",
+    maxParticipants: 25,
+    currentParticipants: 12,
+  },
+  {
+    id: "5",
+    name: "Direitos Humanos e Cidadania",
+    area: "Direitos Humanos",
+    description:
+      "Projeto de conscientização sobre direitos humanos e cidadania, oferecendo palestras, workshops e assessoria jurídica gratuita para a comunidade.",
+    totalHours: 110,
+    weeklyHours: 8,
+    startDate: "2024-03-15",
+    endDate: "2024-07-15",
+    courses: ["Direito", "Ciências Contábeis", "Administração"],
+    coordinator: "Prof. Dr. Roberto Lima",
+    status: "open",
+    maxParticipants: 18,
+    currentParticipants: 10,
+  },
+  {
+    id: "6",
+    name: "Comunicação Comunitária Digital",
+    area: "Comunicação",
+    description:
+      "Capacitação de lideranças comunitárias para uso de ferramentas digitais de comunicação, criação de conteúdo e gestão de redes sociais.",
+    totalHours: 60,
+    weeklyHours: 4,
+    startDate: "2024-06-01",
+    endDate: "2024-08-31",
+    courses: ["Sistemas de Informação", "Administração", "Ciência da Computação"],
+    coordinator: "Profa. Dra. Fernanda Costa",
+    status: "open",
+    maxParticipants: 20,
+    currentParticipants: 3,
+  },
+  {
+    id: "7",
+    name: "Agricultura Sustentável Familiar",
+    area: "Desenvolvimento Rural",
+    description:
+      "Apoio técnico a pequenos produtores rurais para implementação de práticas agrícolas sustentáveis e melhoria da produtividade.",
+    totalHours: 150,
+    weeklyHours: 10,
+    startDate: "2024-02-01",
+    endDate: "2024-08-31",
+    courses: ["Agronomia", "Engenharia Ambiental", "Zootecnia"],
+    coordinator: "Prof. Dr. Marcos Pereira",
+    status: "in-progress",
+    maxParticipants: 15,
+    currentParticipants: 14,
+  },
+  {
+    id: "8",
+    name: "Capacitação Profissional para Jovens",
+    area: "Trabalho",
+    description:
+      "Programa de capacitação profissional para jovens em situação de vulnerabilidade social, oferecendo cursos técnicos e preparação para o mercado de trabalho.",
+    totalHours: 200,
+    weeklyHours: 15,
+    startDate: "2023-08-01",
+    endDate: "2023-12-31",
+    courses: ["Administração", "Ciências Contábeis", "Engenharia Civil"],
+    coordinator: "Profa. Ma. Luciana Rodrigues",
+    status: "finished",
+    maxParticipants: 30,
+    currentParticipants: 28,
+  },
+  {
+    id: "9",
+    name: "Justiça Restaurativa na Escola",
+    area: "Justiça",
+    description:
+      "Implementação de práticas de justiça restaurativa em escolas públicas para resolução pacífica de conflitos e promoção da cultura de paz.",
+    totalHours: 75,
+    weeklyHours: 5,
+    startDate: "2024-04-15",
+    endDate: "2024-07-31",
+    courses: ["Direito", "Psicologia", "Pedagogia"],
+    coordinator: "Prof. Dr. André Martins",
+    status: "open",
+    maxParticipants: 16,
+    currentParticipants: 7,
+  },
+  {
+    id: "10",
+    name: "Nutrição e Saúde Comunitária",
+    area: "Saúde",
+    description:
+      "Programa de orientação nutricional e promoção de hábitos alimentares saudáveis em comunidades de baixa renda.",
+    totalHours: 95,
+    weeklyHours: 7,
+    startDate: "2024-05-15",
+    endDate: "2024-09-15",
+    courses: ["Nutrição", "Medicina", "Enfermagem"],
+    coordinator: "Profa. Dra. Carla Mendes",
+    status: "open",
+    maxParticipants: 14,
+    currentParticipants: 6,
+  },
+  {
+    id: "11",
+    name: "IA para Sustentabilidade Ambiental",
+    area: "Tecnologia",
+    description:
+      "Desenvolvimento de sistemas de inteligência artificial para monitoramento ambiental, análise de dados climáticos e otimização de recursos naturais em parceria com produtores rurais da região.",
+    totalHours: 160,
+    weeklyHours: 10,
+    startDate: "2023-03-01",
+    endDate: "2023-11-30",
+    courses: ["Ciência da Computação", "Engenharia de Software", "Sistemas de Informação"],
+    coordinator: "Prof. Dr. Ricardo Mendes",
+    status: "finished",
+    maxParticipants: 12,
+    currentParticipants: 12,
+  },
+]
+
+export const mockStudent: Student = {
+  id: "1",
+  name: "Ana Carolina Silva",
+  email: "ana.silva@estudante.ufla.br",
+  course: "Ciência da Computação",
+  period: 6,
+  phone: "(35) 99999-9999",
+}
+
+export const mockEnrollments: Enrollment[] = [
+  {
+    id: "1",
+    projectId: "1", // Tecnologia Assistiva para Deficientes Visuais
+    studentId: "1",
+    status: "approved",
+    enrollmentDate: "2024-02-10",
+    motivation:
+      "Como estudante de Ciência da Computação, tenho interesse em desenvolver soluções tecnológicas que promovam inclusão e acessibilidade. Quero aplicar meus conhecimentos em programação para criar ferramentas que realmente façam diferença na vida das pessoas.",
+  },
+  {
+    id: "2",
+    projectId: "6", // Comunicação Comunitária Digital
+    studentId: "1",
+    status: "approved",
+    enrollmentDate: "2023-07-25",
+    motivation:
+      "Quero aplicar meus conhecimentos em desenvolvimento web e mobile para capacitar comunidades no uso de tecnologias digitais. Acredito que a tecnologia pode ser uma ferramenta poderosa de transformação social.",
+  },
+  {
+    id: "3",
+    projectId: "3", // Saúde Mental Universitária
+    studentId: "1",
+    status: "pending",
+    enrollmentDate: "2024-03-20",
+    motivation:
+      "Como estudante, entendo a importância da saúde mental no ambiente universitário. Gostaria de contribuir desenvolvendo aplicações e ferramentas digitais que possam apoiar o bem-estar dos estudantes.",
+  },
+  {
+    id: "4",
+    projectId: "11", // IA para Sustentabilidade Ambiental
+    studentId: "1",
+    status: "approved",
+    enrollmentDate: "2023-03-15",
+    motivation:
+      "Tenho grande interesse em inteligência artificial e sustentabilidade. Vejo este projeto como uma oportunidade única de aplicar algoritmos de machine learning para resolver problemas ambientais reais.",
+  },
+]
+
+// Dados para certificados
+export const mockCertificates = [
+  {
+    id: "1",
+    projectId: "11",
+    projectName: "IA para Sustentabilidade Ambiental",
+    studentName: "Ana Carolina Silva",
+    completionDate: "2023-11-30",
+    totalHours: 160,
+    coordinator: "Prof. Dr. Ricardo Mendes",
+    issueDate: "2023-12-15",
+  },
+  {
+    id: "2",
+    projectId: "6",
+    projectName: "Comunicação Comunitária Digital",
+    studentName: "Ana Carolina Silva",
+    completionDate: "2024-08-31",
+    totalHours: 60,
+    coordinator: "Profa. Dra. Fernanda Costa",
+    issueDate: "2024-09-10",
+  },
+]
